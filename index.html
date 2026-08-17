@@ -276,6 +276,19 @@ p{margin:0}
 .card p{font-size:.94rem;color:var(--text-2)}
 .card .more{margin-top:auto;padding-top:6px;font-size:.9rem;font-weight:600;color:var(--accent-ink);display:flex;gap:7px;align-items:center}
 
+/* solutions */
+.solution{
+  background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--vvu);
+  border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:8px;
+}
+.solution.biz{border-top-color:var(--slate)}
+.solution .for{
+  font-family:var(--mono);font-size:.65rem;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--text-2);
+}
+.solution h3{font-size:1.06rem}
+.solution p{font-size:.93rem;color:var(--text-2)}
+
 /* stat row */
 .stat{
   background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
@@ -289,6 +302,8 @@ p{margin:0}
   background:var(--ink);color:var(--on-dark);border-radius:6px;overflow:hidden;
   display:grid;grid-template-columns:1.05fr .95fr;
 }
+/* grid-items krijgen standaard min-width:auto en worden dan breder dan hun kolom */
+.calc > *{min-width:0}
 .calc-controls{padding:clamp(26px,3.2vw,38px);display:flex;flex-direction:column;gap:26px}
 .calc-controls h3{color:#fff;font-size:1.3rem}
 .calc-controls p{color:var(--on-dark-2);font-size:.93rem}
@@ -458,6 +473,8 @@ details.faq .a{padding-bottom:19px;color:var(--text-2);font-size:.96rem;max-widt
 .page-head .eyebrow{margin-bottom:12px;display:block}
 
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4vw,56px);align-items:start}
+/* als klasse, niet inline: anders wint het van de media-query hieronder */
+.split-contact{grid-template-columns:1.4fr .9fr}
 
 .spec-table{width:100%;border-collapse:collapse;font-size:.93rem}
 .spec-table th,.spec-table td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}
@@ -477,7 +494,7 @@ details.faq .a{padding-bottom:19px;color:var(--text-2);font-size:.96rem;max-widt
   .calc-out{border-left:0;border-top:1px solid rgba(255,255,255,.09)}
   .grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}
   .steps{grid-template-columns:repeat(2,1fr)}
-  .split{grid-template-columns:1fr}
+  .split,.split-contact{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:720px){
@@ -554,10 +571,10 @@ details.faq .a{padding-bottom:19px;color:var(--text-2);font-size:.96rem;max-widt
           <button class="btn btn-on-dark btn-lg" data-go="thuis">Bereken mijn opslag</button>
         </div>
         <div class="hero-trust">
-          <div><span class="k">2023</span><span class="l">Opgericht in Nederland</span></div>
-          <div><span class="k">LiFePO₄</span><span class="l">Onbrandbare celchemie</span></div>
-          <div><span class="k">5–30 kWh</span><span class="l">Thuis, schaalbaar</span></div>
-          <div><span class="k">Maatwerk</span><span class="l">Zakelijk, elk formaat</span></div>
+          <div><span class="k">500+</span><span class="l">Tevreden klanten</span></div>
+          <div><span class="k">2.000+</span><span class="l">Installaties geplaatst</span></div>
+          <div><span class="k">5 jaar</span><span class="l">Garantie op alle installaties</span></div>
+          <div><span class="k">A-merk</span><span class="l">Alleen gecertificeerde producten</span></div>
         </div>
       </div>
 
@@ -585,8 +602,8 @@ details.faq .a{padding-bottom:19px;color:var(--text-2);font-size:.96rem;max-widt
       <ul>
         <li>Zonnepanelen met advies en installatie</li>
         <li>Thuisbatterij van 5 tot 30 kWh</li>
-        <li>Volautomatisch aansturen via de app</li>
-        <li>Indicatie: € 3.500 – € 15.000 all-in</li>
+        <li>Noodstroom en een laadpunt voor de deur</li>
+        <li>Montage en service door eigen monteurs</li>
       </ul>
       <span class="track-go">Bekijk de mogelijkheden voor thuis <span class="arrow">→</span></span>
     </button>
@@ -598,15 +615,58 @@ details.faq .a{padding-bottom:19px;color:var(--text-2);font-size:.96rem;max-widt
       <ul>
         <li>Industriële accu's op maat gebouwd</li>
         <li>Vrije keuze in afmeting en aansluiting</li>
-        <li>Mobiele opstelling tot 100 kWh</li>
+        <li>Noodstroom en laadinfrastructuur</li>
         <li>Diesel vervangen op de bouwplaats</li>
       </ul>
       <span class="track-go">Bekijk de zakelijke oplossingen <span class="arrow">→</span></span>
     </button>
   </section>
 
-  <!-- WAAROM -->
+  <!-- OPLOSSINGEN -->
   <section class="section">
+    <div class="wrap stack gap-32">
+      <div class="stack gap-12 narrow">
+        <span class="eyebrow">Ons aanbod</span>
+        <h2>Zes oplossingen, één aanspreekpunt</h2>
+        <p class="lead">Van een enkele thuisbatterij tot een compleet zakelijk systeem — inclusief de installatie en de service daarna.</p>
+      </div>
+      <div class="grid-3">
+        <article class="solution">
+          <span class="for">Thuis · Zakelijk</span>
+          <h3>Thuisbatterijen</h3>
+          <p>Sla uw energie op en bepaal zelf wanneer u hem gebruikt.</p>
+        </article>
+        <article class="solution">
+          <span class="for">Thuis · Zakelijk</span>
+          <h3>Zonnepanelen</h3>
+          <p>Hoogwaardige panelen, geplaatst voor maximaal rendement.</p>
+        </article>
+        <article class="solution">
+          <span class="for">Thuis · Zakelijk</span>
+          <h3>Noodstroom</h3>
+          <p>Altijd stroom, ook wanneer het net uitvalt.</p>
+        </article>
+        <article class="solution">
+          <span class="for">Thuis · Zakelijk</span>
+          <h3>Laadoplossingen</h3>
+          <p>Slim en snel laden, thuis voor de deur of op het bedrijfsterrein.</p>
+        </article>
+        <article class="solution biz">
+          <span class="for">Zakelijk</span>
+          <h3>Zakelijke oplossingen</h3>
+          <p>Industriële accu's op maat, ontworpen rond uw situatie.</p>
+        </article>
+        <article class="solution">
+          <span class="for">Thuis · Zakelijk</span>
+          <h3>Montage &amp; service</h3>
+          <p>Vakkundige installatie en onderhoud, door onze eigen monteurs.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAAROM -->
+  <section class="section" style="background:var(--surface-2);border-block:1px solid var(--line)">
     <div class="wrap stack gap-32">
       <div class="stack gap-12 narrow">
         <span class="eyebrow">Waarom nu</span>
@@ -638,11 +698,12 @@ details.faq .a{padding-bottom:19px;color:var(--text-2);font-size:.96rem;max-widt
   </section>
 
   <!-- REVIEWS -->
-  <section class="section" style="background:var(--surface-2);border-block:1px solid var(--line)">
+  <section class="section">
     <div class="wrap stack gap-24">
       <div class="stack gap-12 narrow">
         <span class="eyebrow">Wat klanten zeggen</span>
         <h2>Reviews</h2>
+        <p class="lead">Ruim 500 klanten gingen u voor. Een paar van hen aan het woord.</p>
       </div>
       <div class="placeholder">
         <span class="tag">Nog aan te leveren</span>
@@ -886,7 +947,7 @@ details.faq .a{padding-bottom:19px;color:var(--text-2);font-size:.96rem;max-widt
         <div class="stat"><span class="v">100 kWh</span><span class="l">Mobiele accu, inzetbaar waar geen aansluiting is</span></div>
         <div class="stat"><span class="v">Vrij</span><span class="l">Afmetingen en aansluiting naar uw situatie</span></div>
         <div class="stat"><span class="v">LiFePO₄</span><span class="l">Onbrandbaar, onderhoudsvrij, lange levensduur</span></div>
-        <div class="stat"><span class="v">SEB</span><span class="l">Voldoet aan Schoon en Emissieloos Bouwen</span></div>
+        <div class="stat"><span class="v">2.000+</span><span class="l">Installaties geplaatst, met 5 jaar garantie</span></div>
       </div>
 
       <div class="split">
@@ -924,6 +985,18 @@ details.faq .a{padding-bottom:19px;color:var(--text-2);font-size:.96rem;max-widt
         <article class="card">
           <h3>Eigen opwek beter benutten</h3>
           <p>Zonnestroom die u overdag niet kunt gebruiken, opslaan voor de avond of de ochtendpiek. Wat u zelf verbruikt hoeft u niet terug te leveren tegen een tarief waar u niets aan heeft.</p>
+        </article>
+        <article class="card">
+          <h3>Laadinfrastructuur op het terrein</h3>
+          <p>Een groeiend wagenpark trekt zwaar aan uw aansluiting. Laadpunten in combinatie met opslag laden slim bij wanneer er ruimte is, in plaats van allemaal tegelijk om vijf uur 's middags.</p>
+        </article>
+        <article class="card">
+          <h3>Noodstroom voor kritische processen</h3>
+          <p>Bij uitval schakelt het systeem over zonder dat uw productie, koeling of servers eruit liggen.</p>
+        </article>
+        <article class="card">
+          <h3>Montage en service in eigen hand</h3>
+          <p>Onze eigen monteurs plaatsen en onderhouden de installatie. Eén partij verantwoordelijk, van ontwerp tot de jaren erna.</p>
         </article>
       </div>
     </div>
@@ -1042,7 +1115,7 @@ details.faq .a{padding-bottom:19px;color:var(--text-2);font-size:.96rem;max-widt
   </section>
 
   <section class="section">
-    <div class="wrap split" style="grid-template-columns:1.4fr .9fr">
+    <div class="wrap split split-contact">
 
       <form class="stack gap-24" onsubmit="return demoSubmit(event)">
         <div class="stack gap-12">
@@ -1051,8 +1124,10 @@ details.faq .a{padding-bottom:19px;color:var(--text-2);font-size:.96rem;max-widt
           <div class="chips" id="chipsTopic">
             <button type="button" class="chip" aria-pressed="true" data-v="thuisbatterij">Thuisbatterij</button>
             <button type="button" class="chip" aria-pressed="false" data-v="zonnepanelen">Zonnepanelen</button>
-            <button type="button" class="chip" aria-pressed="false" data-v="beide">Allebei</button>
+            <button type="button" class="chip" aria-pressed="false" data-v="noodstroom">Noodstroom</button>
+            <button type="button" class="chip" aria-pressed="false" data-v="laden">Laadoplossing</button>
             <button type="button" class="chip" aria-pressed="false" data-v="zakelijk">Zakelijke accu op maat</button>
+            <button type="button" class="chip" aria-pressed="false" data-v="service">Montage of service</button>
           </div>
         </div>
 
@@ -1175,6 +1250,8 @@ details.faq .a{padding-bottom:19px;color:var(--text-2);font-size:.96rem;max-widt
         <ul>
           <li><button data-go="thuis">Zonnepanelen</button></li>
           <li><button data-go="thuis">Thuisbatterij</button></li>
+          <li><button data-go="thuis">Noodstroom</button></li>
+          <li><button data-go="thuis">Laadoplossingen</button></li>
           <li><button data-go="thuis">Capaciteit berekenen</button></li>
         </ul>
       </div>
@@ -1183,6 +1260,8 @@ details.faq .a{padding-bottom:19px;color:var(--text-2);font-size:.96rem;max-widt
         <ul>
           <li><button data-go="bedrijven">Accu's op maat</button></li>
           <li><button data-go="bedrijven">Mobiele accu 100 kWh</button></li>
+          <li><button data-go="bedrijven">Laadinfrastructuur</button></li>
+          <li><button data-go="bedrijven">Montage &amp; service</button></li>
           <li><button data-go="bedrijven">Netcongestie</button></li>
         </ul>
       </div>
